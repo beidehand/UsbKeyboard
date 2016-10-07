@@ -1,6 +1,8 @@
 # UsbKeyboard
 Atmega328p VUSB Gameboy Zero or Arcade Controller
 
+Using this USB device was only tested on a raspberry pi B with Retropie
+
 required hardware:
 
 1. arduino nano, leonardo or at least something with an Atmega328p chip on it
