@@ -14,7 +14,7 @@ Note you need to:
 
 The pin setup for the keys is as follows:
 
-#define NUMBER_OF_KEYS 11
+define NUMBER_OF_KEYS 11
 char pinCharacters[NUMBER_OF_KEYS] = {
   KEY_ENTER,KEY_B,KEY_Z,KEY_X,KEY_E,KEY_F,KEY_ARROW_UP,KEY_ARROW_DOWN,KEY_ARROW_LEFT,KEY_ARROW_RIGHT,KEY_K};
 int pinButton[NUMBER_OF_KEYS] = {
