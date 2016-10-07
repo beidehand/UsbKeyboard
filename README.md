@@ -8,6 +8,6 @@ required hardware:
 
 Note you need to:
 
-a. use version 1.0.5 of the arduino IDE which you can find at: https://www.arduino.cc/en/Main/OldSoftwareReleases#1.0.x
-b. after you install the IDE go to the libraries folder and add the files from this repository (located under libraries)
-c. pins 2,4 and 5 are used (D2, D4, D5 on a Arduino Nano V3) see schematic.jpg
+3. use version 1.0.5 of the arduino IDE which you can find at: https://www.arduino.cc/en/Main/OldSoftwareReleases#1.0.x
+4. after you install the IDE go to the libraries folder and add the files from this repository (located under libraries)
+5. pins 2,4 and 5 are used (D2, D4, D5 on a Arduino Nano V3) see schematic.jpg
