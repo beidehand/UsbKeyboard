@@ -27,6 +27,27 @@ char pinCharacters[NUMBER_OF_KEYS] = {
 int pinButton[NUMBER_OF_KEYS] = {
   0,1,3,6,7,8,9,10,11,12,13,14,15,16,17};
   
+
+meaning:
+pin0 : KEY_ENTER
+pin1 : KEY_B
+pin3 : KEY_Z
+pin6 : KEY_X
+pin7 : KEY_A
+pin8 : KEY_S
+pin9 : KEY_ARROW_UP
+pin10 : KEY_ARROW_DOWN
+pin11 : KEY_ARROW_LEFT
+pin12 : KEY_ARROW_RIGHT
+pin13 : KEY_K
+pin14 : KEY_Q
+pin15 : KEY_W
+pin16 : KEY_E
+pin17 : KEY_R
+
+This should give you enough buttons to emulate for d-pad, buttons a,b,x,y and shoulder buttons l1, l2, r1, r2
+
+  
 If you use this software, make sure that:
 
 9. you solder your keys / buttons to the proper input (as mentioned above) OR
