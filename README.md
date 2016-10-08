@@ -20,13 +20,15 @@ Note you need to:
 The pin setup for the keys is as follows:
 
 define NUMBER_OF_KEYS 15
+
 char pinCharacters[NUMBER_OF_KEYS] = {
   KEY_ENTER,KEY_B,KEY_Z,KEY_X,KEY_A,KEY_S,KEY_ARROW_UP,KEY_ARROW_DOWN,KEY_ARROW_LEFT,KEY_ARROW_RIGHT,KEY_K,KEY_Q,KEY_W,KEY_E,KEY_R};
+
 int pinButton[NUMBER_OF_KEYS] = {
   0,1,3,6,7,8,9,10,11,12,13,14,15,16,17};
   
 If you use this software, make sure that:
 
-9. you solder your keys / buttons to the proper input (as mentioned above)
+9. you solder your keys / buttons to the proper input (as mentioned above) OR
 10. change the above code to match your own soldering.....keeping in mind that by default pins D2,D4 and D5 are used for USB communication
 11. if you want to change the used pins for USB check usbconfig.h (USB_CFG_DMINUS_BIT, USB_CFG_DPLUS_BIT and USB_CFG_PULLUP_BIT)
