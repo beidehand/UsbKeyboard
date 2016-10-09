@@ -68,6 +68,15 @@ PROGMEM char usbHidReportDescriptor[35] = { /* USB report descriptor */
 #define MOD_ALT_RIGHT       (1<<6)
 #define MOD_GUI_RIGHT       (1<<7)
 
+#define KEY_LEFT_CTRL   0x80
+#define KEY_LEFT_SHIFT    0x81
+#define KEY_LEFT_ALT    0x82
+#define KEY_LEFT_GUI    0x83
+#define KEY_RIGHT_CTRL    0x84
+#define KEY_RIGHT_SHIFT   0x85
+#define KEY_RIGHT_ALT   0x86
+#define KEY_RIGHT_GUI   0x87
+
 #define KEY_A       4
 #define KEY_B       5
 #define KEY_C       6
@@ -179,13 +188,17 @@ class UsbKeyboardDevice {
 		//       so we know the previous keystroke was
 		//       sent.
 	}
+	
+	if(keyStroke==KEY_RIGHT_SHIFT){
+		usbReport[START_MODIFIERS] = 0x00;
+	} else {
 		
-	for (int i=START_KEYS; i<BUFFER_SIZE; i++) {
-		if (usbReport[i] == keyStroke) {
-			usbReport[i] = 0x00;
+		for (int i=START_KEYS; i<BUFFER_SIZE; i++) {
+			if (usbReport[i] == keyStroke) {
+				usbReport[i] = 0x00;
+			}
 		}
 	}
-	
 	usbSetInterrupt(usbReport, sizeof(usbReport));
 		
 	while (!usbInterruptIsReady()) {
@@ -203,29 +216,34 @@ class UsbKeyboardDevice {
 		//       so we know the previous keystroke was
 		//       sent.
 	}
-      
-	//not use modifiers
-    usbReport[START_MODIFIERS] = 0x00;
-	
-	int alreadyPressed = 0;
-	
-	for (int i=START_KEYS; i<BUFFER_SIZE; i++) {
-		if (usbReport[i] == keyStroke) {
-			alreadyPressed = 1;
-			break;
-		}
-	}
-	
-	if (alreadyPressed==0) {
+    
+	if(keyStroke==KEY_RIGHT_SHIFT){
+		usbReport[START_MODIFIERS] = MOD_SHIFT_RIGHT;
+	} else {
+		//not use modifiers
+		usbReport[START_MODIFIERS] = 0x00;
+		
+		int alreadyPressed = 0;
 		
 		for (int i=START_KEYS; i<BUFFER_SIZE; i++) {
-			if (usbReport[i] == 0x00) {
-				usbReport[i] = keyStroke;
+			if (usbReport[i] == keyStroke) {
+				alreadyPressed = 1;
 				break;
 			}
 		}
 		
-	}
+		if (alreadyPressed==0) {
+			
+			for (int i=START_KEYS; i<BUFFER_SIZE; i++) {
+				if (usbReport[i] == 0x00) {
+					usbReport[i] = keyStroke;
+					break;
+				}
+			}
+			
+		}
+	
+    }
 	
 	usbSetInterrupt(usbReport, sizeof(usbReport));
 		
